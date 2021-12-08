@@ -8,13 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        glue = "separated_contexts.features.printing",
-        features = "classpath:separated_contexts/features/printing")
+    glue = "separated_contexts.features.printing",
+    features = "classpath:separated_contexts/features/printing")
+@CucumberContextConfiguration
+@SpringBootTest(classes = PrintingSpringTestConfig.class)
 public class RunPrintingCucumberTests {
-
-    @CucumberContextConfiguration
-    @SpringBootTest(classes = PrintingSpringTestConfig.class)
-    public static class CucumberSpringPrinting {
-
-    }
 }

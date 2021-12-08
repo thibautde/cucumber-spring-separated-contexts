@@ -8,13 +8,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        glue = "separated_contexts.features.reporting",
-        features = "classpath:separated_contexts/features/reporting")
+    glue = "separated_contexts.features.reporting",
+    features = "classpath:separated_contexts/features/reporting")
+@CucumberContextConfiguration
+@SpringBootTest(classes = ReportingSpringTestConfig.class)
 public class RunReportCucumberTests {
-
-    @CucumberContextConfiguration
-    @SpringBootTest(classes = ReportingSpringTestConfig.class)
-    public static class CucumberSpringReporting {
-
-    }
 }
